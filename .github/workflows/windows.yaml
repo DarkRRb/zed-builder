@@ -16,4 +16,8 @@ jobs:
           repository: "zed-industries/zed"
           ref: ${{ github.event.inputs.branch }}
 
-      - run: cargo --version
+      - run: rustup target add x86_64-pc-windows-msvc
+
+      - run: cargo build --target=x86_64-pc-windows-msvc
+
+      - run: tree .
