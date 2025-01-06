@@ -16,6 +16,9 @@ jobs:
           repository: "zed-industries/zed"
           ref: ${{ github.event.inputs.branch }}
 
+      # Fix https://github.com/zed-industries/zed/blob/main/docs/src/development/windows.md#build-fails-path-too-long
+      - run: git config --system core.longpaths true
+
       - run: cargo build
 
       - run: tree .
