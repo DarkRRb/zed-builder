@@ -22,4 +22,6 @@ jobs:
 
       - run: cargo build --release
 
-      - run: tree target/release
+      - run: gh release create ${{ github.event.inputs.branch }} -t "${{ github.event.inputs.branch }}" -R ${{ github.repository }}
+
+      - run: gh release upload ${{ github.event.inputs.branch }} target/release/zed.exe -R ${{ github.repository }}
