@@ -20,6 +20,6 @@ jobs:
       - run: git config --system core.longpaths true
       - run: New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem" -Name "LongPathsEnabled" -Value 1 -PropertyType DWORD -Force
 
-      - run: cargo build
+      - run: cargo build --release
 
-      - run: tree .
+      - run: tree target/release
